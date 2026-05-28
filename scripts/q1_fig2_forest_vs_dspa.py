@@ -89,20 +89,26 @@ print(f'Cancer-only: {kappa_cancer:.4f} [{ci_cancer[0]:.4f}, {ci_cancer[1]:.4f}]
 print(f'Full cohort: {kappa_full:.4f} [{ci_full[0]:.4f}, {ci_full[1]:.4f}]')
 print(f'Random-20  : {kappa_rand20:.4f} [{ci_rand20[0]:.4f}, {ci_rand20[1]:.4f}] (across-seed)')
 
-# DSPA-MIL published numbers (Hao et al. MICCAI 2025; from S118 audit script)
+# DSPA-U-MIL published numbers (Hao et al. Medical Image Analysis 2026; updated S121 from MIA 2026 PDF)
 # Mean ± 1.96σ for 95% CI from reported σ
 def dspa_ci(mean, sigma):
     return mean - 1.96 * sigma, mean + 1.96 * sigma
 
 
+# Inter-pathologist Gleason QWK reference range (R009 PANDA challenge + R001 ISUP consensus):
+# typical inter-pathologist kappa for Gleason grading sits in 0.65-0.85 range.
+# This is the noise ceiling for any single-cohort external-validation kappa.
+PATHOLOGIST_RANGE_LO = 0.65
+PATHOLOGIST_RANGE_HI = 0.85
+
 rows = [
     ('Ours: cancer-only ($n=426$)',                kappa_cancer, ci_cancer,    COLORS['blue']),
     ('Ours: random-20 benign ($n=446$)',           kappa_rand20, ci_rand20,    COLORS['blue']),
     ('Ours: full cohort ($n=544$) [primary]',      kappa_full,   ci_full,      COLORS['magenta']),
-    ('DSPA-MIL AB-MIL baseline ($n=446$)',         0.6770,       dspa_ci(0.6770, 0.021), COLORS['gray']),
-    ('DSPA-MIL CLAM-SB ($n=446$)',                 0.6890,       dspa_ci(0.6890, 0.022), COLORS['gray']),
-    ('DSPA-MIL CLAM-MB ($n=446$)',                 0.7270,       dspa_ci(0.7270, 0.020), COLORS['gray']),
-    ('DSPA-MIL (proposed best, $n=446$)',          0.7420,       dspa_ci(0.7420, 0.037), COLORS['gray']),
+    ('DSPA-U-MIL AB-MIL baseline ($n=446$)',       0.6770,       dspa_ci(0.6770, 0.023), COLORS['gray']),
+    ('DSPA-U-MIL CLAM-SB ($n=446$)',               0.6880,       dspa_ci(0.6880, 0.025), COLORS['gray']),
+    ('DSPA-U-MIL CLAM-MB ($n=446$)',               0.7270,       dspa_ci(0.7270, 0.020), COLORS['gray']),
+    ('DSPA-U-MIL (proposed, $n=446$)',             0.7940,       dspa_ci(0.7940, 0.042), COLORS['gray']),
 ]
 
 # Sort by kappa ascending so highest kappa is at the top
@@ -116,6 +122,13 @@ errlo = [r[1] - r[2][0] for r in rows]
 errhi = [r[2][1] - r[1] for r in rows]
 colors = [r[3] for r in rows]
 
+# Pathologist reference cloud (noise ceiling) — Bejnordi Fig 3A inspired
+ax.axvspan(PATHOLOGIST_RANGE_LO, PATHOLOGIST_RANGE_HI,
+           color=COLORS['teal'], alpha=0.10, zorder=0,
+           label=f'Inter-pathologist $\\kappa_w$ range '
+                 f'[{PATHOLOGIST_RANGE_LO:.2f}, {PATHOLOGIST_RANGE_HI:.2f}] '
+                 f'(R009, R001)')
+
 ax.errorbar(kappas, y_pos, xerr=[errlo, errhi], fmt='none', color='#666666',
             elinewidth=1.0, capsize=3, zorder=2)
 for i, (k, c) in enumerate(zip(kappas, colors)):
@@ -128,7 +141,7 @@ ax.axvline(kappa_full, color=COLORS['magenta'], alpha=0.35, linewidth=1.0,
 ax.set_yticks(y_pos)
 ax.set_yticklabels(labels, fontsize=8)
 ax.set_xlabel(r'Quadratic-weighted $\kappa$ (95% CI)')
-ax.set_xlim(0.40, 0.85)
+ax.set_xlim(0.40, 0.90)
 ax.set_title(r'External validation on TCGA-PRAD: protocol-comparable QWK vs published baselines',
              fontsize=10, pad=10)
 ax.legend(loc='lower right', framealpha=0.9, fontsize=7)
