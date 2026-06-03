@@ -1,0 +1,56 @@
+# Citation File Format — https://citation-file-format.github.io/
+# NOTE (double-blind): this file names both authors. It is appropriate for the
+#   NAMED public repository (github.com/MohamedFarht/CLAM-TR) and the thesis.
+#   The Q1 manuscript is in double-blind review at NCA — EXCLUDE or anonymise
+#   this file before exposing the snapshot through the anonymous.4open.science
+#   peer-review mirror.
+# Licence: GPL-3.0-or-later (confirmed S132) — CLAM-TR derives from CLAM (Lu et al.),
+#   which is GPL-3.0-only; the full licence text belongs in the LICENSE file.
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the accompanying thesis (preferred-citation below)."
+title: "CLAM-TR: Retention-Enhanced Dual-Branch Aggregation for Whole Slide Image Classification in Prostate Cancer Grading"
+abstract: >-
+  CLAM-TR is a slide-level multiple-instance-learning (MIL) aggregator for
+  whole slide image (WSI) classification. It augments CLAM gated attention
+  with a retention-enhanced dual-branch head (additive fusion of a CLAM
+  gated-attention branch and a retention branch over the TopK=128 patches)
+  and is evaluated on the noise-cleaned 9,128-slide PANDA prostate-cancer
+  ISUP grading cohort under 5-fold stratified cross-validation, with
+  zero-shot external validation on TCGA-PRAD.
+type: software
+version: "v20"
+date-released: "2026-06-03"   # prep date; set to the actual public-release date on push
+repository-code: "https://github.com/MohamedFarht/CLAM-TR"
+license: "GPL-3.0-or-later"
+authors:
+  - given-names: "Mohamed Fawzy Farahat Rateb"
+    family-names: "Hassan"
+    orcid: "https://orcid.org/0009-0003-3909-6660"
+    affiliation: "Karadeniz Technical University, Department of Computer Engineering, Trabzon, Türkiye"
+  - given-names: "Murat"
+    family-names: "Ekinci"
+    orcid: "https://orcid.org/0000-0001-9326-8425"
+    affiliation: "Karadeniz Technical University, Department of Computer Engineering, Trabzon, Türkiye"
+keywords:
+  - "whole slide image"
+  - "multiple instance learning"
+  - "prostate cancer"
+  - "Gleason grading"
+  - "retention mechanism"
+  - "computational pathology"
+references:
+  - type: data
+    title: "Pre-registered LoRA fine-tuning protocol (CLAM-TR)"
+    doi: "10.5281/zenodo.20529009"
+    notes: "CC-BY-4.0 Zenodo deposit of the pre-registered LoRA protocol document (question, decision rule, statistical-analysis plan, Stage-4 outcome)."
+preferred-citation:
+  type: thesis
+  title: "Retention-Enhanced Dual-Branch Aggregation for Whole Slide Image Classification in Prostate Cancer Grading"
+  year: 2026
+  authors:
+    - given-names: "Mohamed Fawzy Farahat Rateb"
+      family-names: "Hassan"
+      orcid: "https://orcid.org/0009-0003-3909-6660"
+  institution:
+    name: "Karadeniz Technical University, Graduate School of Natural and Applied Sciences"
+  thesis-type: "Master's thesis"

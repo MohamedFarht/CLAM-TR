@@ -1,0 +1,25 @@
+CLAM-TR — Retention-Enhanced Dual-Branch Aggregation for WSI Classification
+Copyright (C) 2026  Mohamed Fawzy Farahat Rateb Hassan and Murat Ekinci
+Karadeniz Technical University, Department of Computer Engineering, Trabzon, Türkiye
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version (GPL-3.0-or-later).
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+CLAM-TR derives from CLAM (Lu et al., "Data-efficient and weakly supervised
+computational pathology on whole-slide images", Nature Biomedical Engineering,
+2021), which is licensed GPL-3.0-only; this derivative is therefore distributed
+under GPL-3.0-or-later.
+
+----------------------------------------------------------------------------
+NOTE (finalise before publishing the repo): replace this header with the FULL
+canonical GPL-3.0 text, e.g.:
+    curl -L https://www.gnu.org/licenses/gpl-3.0.txt -o LICENSE
+The full text is required for a valid GPL distribution; this file currently
+holds only the copyright + licence notice.
+----------------------------------------------------------------------------
