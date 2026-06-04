@@ -1,7 +1,7 @@
 # Model Card — CLAM-TR (RetNet-bestHP)
 
 A model card following the structure of Mitchell et al. (2019). All numbers
-are reproduced from the recorded experimental records; see `CITATION.cff`,
+are reproduced from the recorded experimental records; see `LICENSE`,
 `REPRODUCIBILITY.md`, and `best_lr.json` for provenance.
 
 ## Model details
@@ -10,7 +10,7 @@ are reproduced from the recorded experimental records; see `CITATION.cff`,
 - **Architecture:** A CLAM gated-attention branch and a retention branch operate over the TopK = 128 patches selected by gated attention; the two branch slide embeddings are combined by **additive fusion** (`M_clam + M_ret`) and classified by a single `Linear(512, 6)` head (six ordinal ISUP classes G0–G5). `num_heads = 4`, `hidden_dim = 512`.
 - **Encoders (frozen):** UNI v1 (ViT-L/16, 1024-d) and UNI2-h (ViT-H/14, 1536-d), from the gated `MahmoodLab/UNI` and `MahmoodLab/UNI2-h` releases.
 - **Best hyperparameters (bestHP):** `lr = 2e-4` (tuned via the fold-0 LR search in `best_lr.json`; the pre-tuning default dict value was `1e-4`), `weight_decay = 1e-5`, `dropout = 0.15`, `attention_temperature = 0.7`, retention γ-bank `[0.88, 0.90, 0.92, 0.94, 0.96, 0.98, 0.99, 0.995]`, up to 50 epochs with early stopping, `seed = 42`.
-- **Version:** v20 (thesis-final). **License:** see `CITATION.cff` (TODO — confirm; CLAM upstream is GPL-3.0).
+- **Version:** v20 (final). **License:** see `LICENSE` (TODO — confirm; CLAM upstream is GPL-3.0).
 
 ## Intended use
 - **Primary:** research on slide-level ISUP/Gleason grade-group prediction from prostate WSIs, and on encoder × aggregator co-selection in computational pathology.
@@ -18,7 +18,7 @@ are reproduced from the recorded experimental records; see `CITATION.cff`,
 
 ## Training data
 - **Dataset:** noise-cleaned **PANDA** prostate-biopsy cohort, **9,128 slides** (derived from the 10,616-slide raw release: Karolinska 5,758 + Radboud 4,858), labelled by ISUP grade group G0–G5.
-- **Split:** 5-fold stratified cross-validation on the Kaggle 1st-place split; **slide-level isolation** by construction (patient-level grouping is not verifiable from the released metadata — see thesis §2.1.3).
+- **Split:** 5-fold stratified cross-validation on the Kaggle 1st-place split; **slide-level isolation** by construction (patient-level grouping is not verifiable from the released metadata — see study §2.1.3).
 - **Features:** pre-extracted and cached (UNI `.pt`, fp16, 1024-d; UNI2-h `.h5`, 1536-d).
 
 ## Evaluation
@@ -36,4 +36,4 @@ are reproduced from the recorded experimental records; see `CITATION.cff`,
 
 ## Ethical considerations
 - **Research-use-only**; not for clinical use. Trained on the publicly released PANDA dataset; no patient data were collected by the authors.
-- **Generative-AI assistance** during the accompanying write-up is disclosed in the thesis (§ AI-use methods note + KTU FBE-FR-O22 form); no scientific decision, number, or figure was produced by an LLM.
+- **Generative-AI assistance** during the accompanying write-up is disclosed in the study (§ AI-use methods note + institutional ethics form); no scientific decision, number, or figure was produced by an LLM.

@@ -1,5 +1,5 @@
 # CLAM-TR — software dependency manifest
-# Source of truth: thesis Methodology "Compute Environment" + the recorded Google
+# Source of truth: study Methodology "Compute Environment" + the recorded Google
 # Colab Pro+ runtime (2026). Hardware: NVIDIA Tesla T4 (15.6 GB) for the
 # 9,128-slide factorial (both encoders); NVIDIA A100 80 GB for the exploratory
 # LoRA branch only. Python 3.10/3.11 (Colab Pro+ 2026).

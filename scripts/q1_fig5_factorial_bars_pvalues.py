@@ -6,7 +6,7 @@ GigaPath Fig 2-3 / Kurata Fig 2-3 style:
 - Individual 5-fold dots overlaid on each bar (paired by fold).
 - Paired Wilcoxon p-value on top of each aggregator-vs-ABMIL contrast.
 
-Reads thesis/main/figures/retention_ablation_per_fold.csv.
+Reads study/main/figures/retention_ablation_per_fold.csv.
 Writes papers/NCA 2026/figures/fig5_factorial_bars_pvalues.{pdf,png}.
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ from q1_fig_style import apply_style, COLORS, FIG_DOUBLE, save_fig
 
 apply_style()
 
-INPUT_CSV = Path('thesis/main/figures/retention_ablation_per_fold.csv')
+INPUT_CSV = Path('study/main/figures/retention_ablation_per_fold.csv')
 HP = 'best'
 N_BOOT = 10000
 SEED = 42

@@ -1,4 +1,4 @@
-"""Thesis TF3 / extra Q1 supp: inter-decoding-rule Cohen's kappa heatmap.
+"""Study TF3 / extra Q1 supp: inter-decoding-rule Cohen's kappa heatmap.
 
 Neidlinger Ext Fig 10 style. Shows which slides each decoding rule grades
 identically vs differently on TCGA-PRAD. Diagonal = 1.0 by construction.

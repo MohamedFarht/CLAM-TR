@@ -1,7 +1,7 @@
 # Reproducibility — CLAM-TR
 
 This file is the software-version manifest, random-seed policy, and compute-command
-record that the thesis appendix says is "released together with the public code
+record that the study appendix says is "released together with the public code
 repository." It complements `requirements.txt`, `best_lr.json`, and `data_pointers.md`.
 
 ## Random-seed policy
@@ -17,7 +17,7 @@ repository." It complements `requirements.txt`, `best_lr.json`, and `data_pointe
 - **Approx. runtime per single 5-fold experiment (T4):** UNI ~8–12 h; UNI2-h ~15–20 h.
 
 ## Exact compute command
-Per thesis §2.6, "the exact training command is the recorded run itself, with cells
+Per study §2.6, "the exact training command is the recorded run itself, with cells
 executed in order with seed = 42." The headline result is reproduced by:
 
 1. Obtain the 9,128-slide noise-cleaned PANDA subset (see `data_pointers.md`).
@@ -28,7 +28,7 @@ executed in order with seed = 42." The headline result is reproduced by:
 
 ## Learning-rate selection
 `best_lr.json` records the fold-0 LR search on `ABMIL_bestHP` over `[5e-5, 1e-4, 2e-4]`;
-the selected `best_lr = 2e-4` for both UNI and UNI2-h is the value reported in the thesis.
+the selected `best_lr = 2e-4` for both UNI and UNI2-h is the value reported in the study.
 
 ## Determinism of the statistical analysis
 Bootstrap CIs use B = 10,000 percentile resamples; BH-FDR via

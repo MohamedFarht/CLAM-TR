@@ -1,5 +1,5 @@
 {
-  "_comment": "Single-fold (fold 0) learning-rate search on ABMIL_bestHP over candidate LRs [5e-5, 1e-4, 2e-4]. The selected best_lr (0.0002 = 2e-4) is auto-loaded by the v20 full-scale training notebook (cell 6 prints 'Auto-loaded tuned LR: 0.0002') and is the LR reported in the thesis methodology. Verbatim source: CLAM_TR_Results/v20_fullscale/{UNI,UNI2-h}/best_lr.json.",
+  "_comment": "Single-fold (fold 0) learning-rate search on ABMIL_bestHP over candidate LRs [5e-5, 1e-4, 2e-4]. The selected best_lr (0.0002 = 2e-4) is auto-loaded by the v20 full-scale training notebook (cell 6 prints 'Auto-loaded tuned LR: 0.0002') and is the LR reported in the study methodology. Verbatim source: CLAM_TR_Results/v20_fullscale/{UNI,UNI2-h}/best_lr.json.",
   "search_config": {
     "aggregator": "ABMIL_bestHP",
     "fold": 0,

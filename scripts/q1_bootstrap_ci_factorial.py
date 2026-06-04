@@ -1,6 +1,6 @@
 """Q1 T1: bootstrap 95% CI from 5-fold per-fold QWK for the 6 × 2 factorial.
 
-Reads thesis/main/figures/retention_ablation_per_fold.csv.
+Reads study/main/figures/retention_ablation_per_fold.csv.
 Outputs:
   - papers/NCA 2026/figures/factorial_ci_inline.csv  (one row per encoder x aggregator)
   - papers/NCA 2026/figures/factorial_ci_inline.tex  (LaTeX snippet with inline CI subscripts)
@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-INPUT_CSV = Path('thesis/main/figures/retention_ablation_per_fold.csv')
+INPUT_CSV = Path('study/main/figures/retention_ablation_per_fold.csv')
 OUT_CSV = Path('papers/NCA 2026/figures/factorial_ci_inline.csv')
 OUT_TEX = Path('papers/NCA 2026/figures/factorial_ci_inline.tex')
 
